@@ -52,5 +52,43 @@ def maxSubArray(self, nums):
             max_so_far=max(max_ending,max_so_far)
         return max_so_far                
 
+#STOCK BUY AND SELL
+ def stockBuySell(self, nums, n):
+        mini=nums[0]
+        profit=0
+        for i in range(1,n):
+            mini=min(mini,nums[i])
+            profit=max(profit,nums[i]-mini)
+        return profit
+
+#REARRANGE ELEMENTS BY SIGN
+def rearrangeArray(self, nums):
+        ans=[0]*len(nums)
+        pos=0
+        neg=1
+        for num in nums:
+            if num>0:
+                ans[pos]=num
+                pos+=2
+            else:
+                ans[neg]=num
+                neg+=2
+        return ans
+
+#LEADERS IN AN ARRAY
+def leaders(self, nums):
+        max_right=nums[-1]
+        leaders=[]
+        leaders.append(max_right)
+        for i in range(len(nums)-2,-1,-1):
+            if nums[i]>max_right:
+                leaders.append(nums[i])
+                max_right=nums[i]
+        leaders.reverse()
+        return leaders
+
+#LONGEST CONSECUTIVE SEQUENCE IN AN ARRAY
+
+
 
               
