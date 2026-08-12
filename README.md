@@ -1,4 +1,5 @@
 # striver_sheet_array_medium
+
 #TWO SUM
 def twoSum(self, nums, target):
         mp={}
@@ -28,6 +29,7 @@ def sortZeroOneTwo(self, nums):
             nums[i]=2
         return nums
 
+
 #MAJORITY ELEMENT
 def majorityElement(self, nums):
         freq={}
@@ -40,6 +42,15 @@ def majorityElement(self, nums):
             if freq[num]>len(nums)//2:
                 return num
 
-                
+
+#KADANE'S ALGORITHIM (Maximum subarray sum)
+def maxSubArray(self, nums):
+        max_ending=nums[0]
+        max_so_far=nums[0]
+        for i in range(1,len(nums)):
+            max_ending=max(nums[i],max_ending+nums[i])
+            max_so_far=max(max_ending,max_so_far)
+        return max_so_far                
+
 
               
