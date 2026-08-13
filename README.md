@@ -88,6 +88,37 @@ def leaders(self, nums):
         return leaders
 
 #LONGEST CONSECUTIVE SEQUENCE IN AN ARRAY
+def longestConsecutive(self, nums):
+        s=set(nums)
+        longest=0
+        for num in s:
+            if num-1 not in s:
+                count=1
+                current=num
+                while current+1 in s:
+                    count+=1
+                    current+=1
+                longest=max(longest,count)
+        return longest
+        
+
+#SET MATRIX ZEROES
+def setZeroes(self, matrix):
+        # Your code goes here
+        row=len(matrix)
+        col=len(matrix[0])
+        row_track=[0 for _ in range(row)]
+        col_track=[0 for _ in range(col)]
+        for i in range(0,row):
+            for j in range(0,col):
+                if matrix[i][j]==0:
+                    row_track[i]=-1
+                    col_track[j]=-1
+        for i in range(0,row):
+            for j in range(0,col):
+                if row_track[i]==-1 or col_track[j]==-1:
+                    matrix[i][j]=0
+
 
 
 
