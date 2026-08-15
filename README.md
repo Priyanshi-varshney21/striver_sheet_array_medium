@@ -155,4 +155,16 @@ while left<right and top<bottom:
 return res
 
 
+#SUBARRAY SUM
+def subarraySum(self, nums, k):
+        count=0
+        total=0
+        freq={0:1}
+        for num in nums:
+            total+=num
+            if total-k in freq:
+                count+=freq[total-k]
+            freq[total]=freq.get(total,0)+1
+        return count
+
               
